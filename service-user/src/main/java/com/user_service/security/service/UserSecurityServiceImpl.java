@@ -36,7 +36,7 @@ public class UserSecurityServiceImpl implements UserDetailsService {
             if (objUser != null) {
                 log.info("=> Login == " + objUser);
 
-                List<Role> listRole = userRepository.getRolesUser(objUser.getId());
+                List<Role> listRole = userRepository.getRolesUser(objUser.getIdUser());
                 log.info("=> Role == " + listRole);
 
                 // Construye y retorna el UserDetails usando MainUser

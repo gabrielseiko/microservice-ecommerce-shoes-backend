@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> searchUser(int id_user) {
-        return userRepository.findById(id_user);
+    public Optional<User> searchUser(int idUser) {
+        return userRepository.findById(idUser);
     }
 
     @Override
@@ -35,8 +35,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(objUser);    }
 
     @Override
-    public void deleteUser(int id_user) {
-        userRepository.deleteById(id_user);
+    public void deleteUser(int idUser) {
+        userRepository.deleteById(idUser);
     }
 
     @Override

@@ -9,7 +9,7 @@ public interface RoleService {
 
     //metodos principales
     List<Role> listRole();
-    Optional<Role> searchRole(int id);
+    Optional<Role> searchRole(int idRole);
     Role registerRole(Role objRole);
-    void deleteRole(int id);
+    void deleteRole(int idRole);
 }

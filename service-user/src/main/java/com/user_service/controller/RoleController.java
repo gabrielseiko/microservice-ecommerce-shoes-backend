@@ -28,9 +28,9 @@ public class RoleController {
     //BUSCAR POR ID
     @GetMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> searchRole(@PathVariable("id") int id){
+    public ResponseEntity<Map<String, Object>> searchRole(@PathVariable("id") int idRole){
         Map<String, Object> exit = new HashMap<>();
-        Optional<Role> optionalRole = roleService.searchRole(id);
+        Optional<Role> optionalRole = roleService.searchRole(idRole);
 
         if (optionalRole.isPresent()){
             exit.put("role", optionalRole.get());
@@ -72,14 +72,14 @@ public class RoleController {
     //ELIMINAR
     @DeleteMapping("/delete/{id}")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> delete(@PathVariable("id") int id){
+    public ResponseEntity<Map<String, Object>> delete(@PathVariable("id") int idRole){
         Map<String, Object> exit = new HashMap<>();
 
         //verificar si existe el rol
-        Optional<Role> optionalRole = roleService.searchRole(id);
+        Optional<Role> optionalRole = roleService.searchRole(idRole);
 
         if (optionalRole.isPresent()){
-            roleService.deleteRole(id);
+            roleService.deleteRole(idRole);
             exit.put("message", "Rol eliminado.");
         } else {
             exit.put("message", "Error");

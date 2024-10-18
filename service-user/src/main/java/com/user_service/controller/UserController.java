@@ -47,9 +47,9 @@ public class UserController {
     //BUSCAR POR ID
     @GetMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> searchUser(@PathVariable("id") int id_user){
+    public ResponseEntity<Map<String, Object>> searchUser(@PathVariable("id") int idUser){
         Map<String, Object> exit = new HashMap<>();
-        Optional<User> optionalUser = userService.searchUser(id_user);
+        Optional<User> optionalUser = userService.searchUser(idUser);
 
         if (optionalUser.isPresent()) {
             exit.put("user", optionalUser.get());
@@ -93,15 +93,15 @@ public class UserController {
     //ELIMINAR USUARIO
     @DeleteMapping("/delete/{id}")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> delete(@PathVariable("id") int id_user) {
+    public ResponseEntity<Map<String, Object>> delete(@PathVariable("id") int idUser) {
         Map<String, Object> exit = new HashMap<>();
 
         // Verificar si el usuario existe
-        Optional<User> optionalUser = userService.searchUser(id_user);
+        Optional<User> optionalUser = userService.searchUser(idUser);
 
         if (optionalUser.isPresent()) {
             // Si el usuario existe, lo eliminamos
-            userService.deleteUser(id_user);
+            userService.deleteUser(idUser);
             exit.put("message", "Usuario eliminado con éxito");
         } else {
             // Si el usuario no existe, enviamos un mensaje de error

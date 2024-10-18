@@ -9,9 +9,9 @@ public interface UserService {
 
     //metodos principales
     public abstract List<User> listUsers();
-    public abstract Optional<User> searchUser(int id_user);
+    public abstract Optional<User> searchUser(int idUser);
     public abstract User registerUser(User objUser);
-    public abstract void deleteUser(int id_user);
+    public abstract void deleteUser(int idUser);
     //Listar admin, trabajador, cliente
     public abstract List<User> findByAllAdmin();
     public abstract List<User> findByAllWorker();

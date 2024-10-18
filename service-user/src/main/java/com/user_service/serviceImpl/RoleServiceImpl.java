@@ -4,14 +4,16 @@ import com.user_service.entity.Role;
 import com.user_service.repository.RoleRepository;
 import com.user_service.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class RoleServiceImpl implements RoleService {
 
     @Autowired
-    RoleRepository repository;
+    private RoleRepository repository;
 
     @Override
     public List<Role> listRole() {
@@ -19,8 +21,8 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Optional<Role> searchRole(int id) {
-        return repository.findById(id);
+    public Optional<Role> searchRole(int idRole) {
+        return repository.findById(idRole);
     }
 
     @Override
@@ -29,7 +31,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void deleteRole(int id) {
-        repository.deleteById(id);
+    public void deleteRole(int idRole) {
+        repository.deleteById(idRole);
     }
 }

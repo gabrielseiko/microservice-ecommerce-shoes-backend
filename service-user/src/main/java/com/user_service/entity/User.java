@@ -14,7 +14,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
-    private int id;
+    private int idUser;
     @Column(name = "email")
     private String email;
     @Column(name = "user_password")
@@ -34,7 +34,7 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "tbl_user_has_role",
-            joinColumns = @JoinColumn(name = "iduser"),
-            inverseJoinColumns = @JoinColumn(name = "idrole"))
+            joinColumns = @JoinColumn(name = "id_user"),
+            inverseJoinColumns = @JoinColumn(name = "id_role"))
     private List<Role> roles;
 }

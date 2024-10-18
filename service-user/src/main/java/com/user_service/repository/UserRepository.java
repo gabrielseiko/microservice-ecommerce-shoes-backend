@@ -12,20 +12,20 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     User findByEmail(String email);
 
     //Consulta para obtener los roles de un usuario específico usando la relación ManyToMany
-    @Query("SELECT r FROM User u JOIN u.roles r WHERE u.id = ?1")
-    List<Role> getRolesUser(int iduser);
+    @Query("SELECT r FROM User u JOIN u.roles r WHERE u.idUser = ?1")
+    List<Role> getRolesUser(int idUser);
 
     //ADMINISTRADOR
-    @Query("SELECT u FROM User u JOIN u.roles r WHERE r.id = 1")
+    @Query("SELECT u FROM User u JOIN u.roles r WHERE r.idRole = 1")
     List<User> findAllAdmin();
 
 
     //TRABAJADOR
-    @Query("SELECT u FROM User u JOIN u.roles r WHERE r.id = 2")
+    @Query("SELECT u FROM User u JOIN u.roles r WHERE r.idRole = 2")
     List<User> findAllWorker();
 
     //CLIENTE
-    @Query("SELECT u FROM User u JOIN u.roles r WHERE r.id = 3")
+    @Query("SELECT u FROM User u JOIN u.roles r WHERE r.idRole = 3")
     List<User> findAllCustomer();
 
     //BUSQUEDA POR EMAIL

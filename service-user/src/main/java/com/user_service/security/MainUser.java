@@ -44,7 +44,7 @@ public class MainUser implements UserDetails {
         for (Role x : roles){
             authorities.add(new SimpleGrantedAuthority(x.getRole()));
         }
-        return new MainUser(user.getId(), user.getEmail(), user.getPassword(), authorities);
+        return new MainUser(user.getIdUser(), user.getEmail(), user.getPassword(), authorities);
     }
 
     @Override

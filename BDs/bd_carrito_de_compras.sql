@@ -1,5 +1,6 @@
 -- Base de datos carrito de compras
-create database bd_store_shopping_cart;
+DROP DATABASE IF EXISTS bd_store_shopping_cart;
+CREATE DATABASE bd_store_shopping_cart;
 use bd_store_shopping_cart;
 
 -- tablas

@@ -1,6 +1,7 @@
 -- Base de datos de Productos
+DROP DATABASE IF EXISTS bd_store_products;
 CREATE DATABASE bd_store_products;
-USE bd_store_products;
+use bd_store_products;
 
 -- Tablas
 

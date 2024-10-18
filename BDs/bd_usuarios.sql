@@ -1,5 +1,6 @@
 -- Base de datos Usuarios con autorizacion
-create database db_store_user;
+DROP DATABASE IF EXISTS db_store_user;
+CREATE DATABASE db_store_user;
 use db_store_user;
 
 -- tabla: rol

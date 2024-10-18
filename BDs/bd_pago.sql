@@ -1,15 +1,16 @@
 -- Base de datos pagos
-create database db_store_payment;
+DROP DATABASE IF EXISTS db_store_payment;
+CREATE DATABASE db_store_payment;
 use db_store_payment;
 
 -- Tabla: pagos
 create table tbl_payment (
   id_payment int primary key auto_increment,          -- ID único del pago
-  id_boleta int not null,                              -- ID del pedido (FK hacia la tabla pedidos)
+  id_boleta int not null,                             -- ID del pedido (FK hacia la tabla pedidos)
   payment_method varchar(50) not null,                -- Método de pago (tarjeta, PayPal, etc.)
   payment_status varchar(20) default 'pending',       -- Estado del pago (pendiente, completado, fallido)
   payment_date timestamp default current_timestamp,   -- Fecha del pago
-  amount decimal(10, 2) not null                     -- Monto pagado
+  amount decimal(10, 2) not null                      -- Monto pagado
 );
 
 -- Insertar pagos

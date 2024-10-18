@@ -1,5 +1,6 @@
 --  Base de datos de Notificaciones a Emial
-create database db_store_notifications;
+DROP DATABASE IF EXISTS db_store_notifications;
+CREATE DATABASE db_store_notifications;
 use db_store_notifications;
 
 -- tabla: notificaciones 

@@ -1,5 +1,7 @@
 -- Base de datos de Boleta
-create database db_store_boleta;
+DROP DATABASE IF EXISTS db_store_boleta;
+CREATE DATABASE db_store_boleta;
+
 use db_store_boleta;
 
 -- Tabla: boleta

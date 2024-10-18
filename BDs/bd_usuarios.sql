@@ -25,10 +25,10 @@ date_register timestamp default current_timestamp -- fecha de registro del usuar
 
 -- tabla: relacion usuaros y sus roles
 create table tbl_user_has_role(
-iduser int not null,
-idrole int not null,
-constraint foreign key (iduser) references tbl_user(id_user),
-constraint foreign key (idrole) references tbl_role(id_role)
+id_user int not null,
+id_role int not null,
+constraint foreign key (id_user) references tbl_user(id_user),
+constraint foreign key (id_role) references tbl_role(id_role)
 );
 
 -- add role
@@ -44,7 +44,7 @@ INSERT INTO tbl_user(email, user_password, user_name, last_name, dni, phone) VAL
 ('daniela@gmail.com', '$2a$10$nQmltI9mxAtleeWOkpNmZ.Mv9E8PAUJNPkM3MFk/N18SmHJNgR3Ae', 'Daniela', 'Guajardo', '33001100', '999000333');
 
 -- add user has role
-INSERT INTO tbl_user_has_role(iduser, idrole) VALUES
+INSERT INTO tbl_user_has_role(id_user, id_role) VALUES
 (1, 1),  -- Gabriel como admin
 (2, 2),  -- Kimberly como worker
 (3, 3);  -- Daniela como customer

@@ -9,8 +9,7 @@ create table tbl_payment (
   payment_method varchar(50) not null,                -- Método de pago (tarjeta, PayPal, etc.)
   payment_status varchar(20) default 'pending',       -- Estado del pago (pendiente, completado, fallido)
   payment_date timestamp default current_timestamp,   -- Fecha del pago
-  amount decimal(10, 2) not null,                     -- Monto pagado
-  constraint fk_boleta_payment foreign key (id_boleta) references db_store_boleta.tbl_boleta(id_boleta) -- Relación con la tabla de boletas
+  amount decimal(10, 2) not null                     -- Monto pagado
 );
 
 -- Insertar pagos

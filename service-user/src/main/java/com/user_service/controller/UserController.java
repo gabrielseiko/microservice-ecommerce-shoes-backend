@@ -1,6 +1,8 @@
 package com.user_service.controller;
 
+import com.user_service.entity.Role;
 import com.user_service.entity.User;
+import com.user_service.service.RoleService;
 import com.user_service.service.UserService;
 import com.user_service.util.AppSettings;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private RoleService roleService;
 
     //LISTAR TODOS LOS USUARIOS
     @GetMapping
@@ -73,6 +77,46 @@ public class UserController {
         }
 
         return ResponseEntity.ok(exit);
+    }
+    //REGISTRAR WORKER
+    @PostMapping("/register/worker")
+    @ResponseBody
+    public ResponseEntity<?> registerWorker(@RequestBody User objUser){
+        Map<String, Object> response = new HashMap<>();
+        Optional<Role> optionalRole = roleService.searchRole(2); //buscar
+
+        if (optionalRole.isPresent()){
+            Role role = optionalRole.get();
+            objUser.setRoles(List.of(role)); // asignar rol
+            User objResponse = userService.registerUser(objUser);
+            if (objResponse != null){
+                response.put("message", "Trabajador registrado" );
+                response.put("user", objResponse);
+            } else {
+                response.put("message", "error no se registro");
+            }
+        }
+        return ResponseEntity.ok(response);
+    }
+    //REGISTRAR WORKER
+    @PostMapping("/register/customer")
+    @ResponseBody
+    public ResponseEntity<?> registerCustomer(@RequestBody User objUser){
+        Map<String, Object> response = new HashMap<>();
+        Optional<Role> optionalRole = roleService.searchRole(3); //buscar
+
+        if (optionalRole.isPresent()){
+            Role role = optionalRole.get();
+            objUser.setRoles(List.of(role)); // asignar rol
+            User objResponse = userService.registerUser(objUser);
+            if (objResponse != null){
+                response.put("message", "Cliente registrado" );
+                response.put("user", objResponse);
+            } else {
+                response.put("message", "error no se registro");
+            }
+        }
+        return ResponseEntity.ok(response);
     }
     //ACTUALIZAR USUARIO
     @PutMapping("/update")

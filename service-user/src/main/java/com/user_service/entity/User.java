@@ -29,7 +29,8 @@ public class User {
     private String phone;
     @Column(name = "state")
     private boolean state;
-    @Column(name = "date_register")
+    @Column(name = "date_register", updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateRegister;
 
     @ManyToMany(fetch = FetchType.EAGER)

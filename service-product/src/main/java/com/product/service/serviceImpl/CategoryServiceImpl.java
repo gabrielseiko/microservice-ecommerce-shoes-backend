@@ -34,4 +34,19 @@ public class CategoryServiceImpl implements CategoryService {
     public void delete(int id) {
         repository.deleteById(id);
     }
+
+	@Override
+	public List<Category> listCategoryByNameLike(String category_name) {
+		return repository.listCategoryByNameLike(category_name);
+	}
+
+	@Override
+	public List<Category> listCategoryByNameEqual(String category_name) {
+		return repository.listCategoryByNameEqual(category_name);
+	}
+
+	@Override
+	public List<Category> listCategoryByNameEqualUpdate(String category_name, int id_category) {
+		return repository.listCategoryByNameEqualUpdate(category_name, id_category);
+	}
 }

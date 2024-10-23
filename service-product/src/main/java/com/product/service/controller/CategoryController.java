@@ -83,4 +83,28 @@ public class CategoryController {
         }
         return ResponseEntity.ok(response);
     }
+    
+    
+    @GetMapping("/listCategoryByNameLike/{var}")
+	@ResponseBody
+	public ResponseEntity<?> listCategoryByNameLike(@PathVariable("var") String category_name){
+		List<Category> lstSalida = null;
+		if (category_name.equals("todos")) {
+			lstSalida = service.list();
+		}else {
+			lstSalida =service.listCategoryByNameLike(category_name +  "%");
+		}
+		return ResponseEntity.ok(lstSalida);
+	}
+    
+    @GetMapping("/validateNameUpdate")
+	public String validateName(@RequestParam(name = "category_name")String category_name, 
+							   @RequestParam(name = "id_category")int id_category) {
+		List<Category> lstSalida = service.listCategoryByNameEqualUpdate(category_name, id_category);
+		if (lstSalida.isEmpty()) {
+			return "{\"valid\":true}";
+		} else {
+			return "{\"valid\":false}";
+		}
+	}
 }
